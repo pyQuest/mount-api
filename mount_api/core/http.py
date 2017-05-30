@@ -1,4 +1,3 @@
-import inspect
 import json
 from typing import Callable
 
@@ -6,28 +5,27 @@ from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
 
+def get_request_params(wsgi_request: WSGIRequest):
+    get_args = wsgi_request.values.to_dict()
+    post_args = json.loads(wsgi_request.data) if wsgi_request.data else {}
+
+    return {**get_args, **post_args}
+
+
+class RequestData:
+    def __init__(self, wsgi_request: WSGIRequest):
+        self.method = wsgi_request.method
+        self.path = wsgi_request.path
+        self.params = get_request_params(wsgi_request)
+
+
 class Request:
-    @property
-    def required_params(self):
-        func_parameters = inspect.signature(self._func).parameters
-        return {
-            param: func_parameters[param].annotation
-            for param in func_parameters
-        }
-
-    def __init__(self, wsgi_request: WSGIRequest, func: Callable) -> None:
+    def __init__(self, data: RequestData, func: Callable) -> None:
         self._func = func
-        self._method = wsgi_request.method
-        self._params = self._parse_params(wsgi_request)
-
-    def _parse_params(self, wsgi_request: WSGIRequest):
-        get_args = wsgi_request.values.to_dict()
-        post_args = json.loads(wsgi_request.data) if wsgi_request.data else {}
-
-        return {**get_args, **post_args}
+        self._data = data
 
     def get_output(self):
-        return self._func(**self._params)
+        return self._func(**self._data.params)
 
 
 class Response:

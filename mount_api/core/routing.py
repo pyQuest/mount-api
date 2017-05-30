@@ -2,10 +2,9 @@ from typing import Callable
 
 import werkzeug.exceptions
 from werkzeug.routing import Map, Rule
-from werkzeug.wrappers import Request as WSGIRequest
 
 from . import exceptions
-
+from .http import RequestData
 
 class Route(Rule):
     def __init__(self, path, endpoint) -> None:
@@ -16,8 +15,8 @@ class Router:
     def __init__(self, routes: list) -> None:
         self._adapter = Map(routes).bind('')
 
-    def dispatch(self, wsgi_request: WSGIRequest) -> Callable:
-        path, method = wsgi_request.path, wsgi_request.method
+    def dispatch(self, request_data: RequestData) -> Callable:
+        path, method = request_data.path, request_data.method
         endpoint_cls = self._get_endpoint_cls(path, method)
         return getattr(endpoint_cls, method.lower())
 
