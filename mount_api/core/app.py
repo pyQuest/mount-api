@@ -1,18 +1,18 @@
+from typing import Type
+
 from werkzeug.serving import run_simple
 from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
 from .http import RequestData, Request, Response
-from .routing import Router
+from .settings import BaseSettings
 
 
 class Application:
-    router = Router
-
-    def __init__(self, port: int, debug: bool, routes: list) -> None:
-        self._port = port
-        self._debug = debug
-        self._router = self.router(routes)
+    def __init__(self, settings: Type[BaseSettings], routes: list) -> None:
+        self._port = settings.port
+        self._debug = settings.debug
+        self._router = settings.import_from_string('router')(routes)
         self._wsgi_app = self._get_wsgi_app()
 
     def run(self):

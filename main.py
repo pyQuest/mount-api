@@ -1,6 +1,13 @@
 from mount_api.core import Application
 from mount_api.core import Route
 from mount_api.core import AbstractEndpoint
+from mount_api.core import BaseSettings
+
+
+class Settings(BaseSettings):
+    debug = True
+    port = 8000
+    router = 'mount_api.core.Router'
 
 
 class HelloEndpoint(AbstractEndpoint):
@@ -21,5 +28,5 @@ routes = [
     Route('/welcome', WelcomeEndpoint()),
 ]
 
-app = Application(port=8000, debug=True, routes=routes)
+app = Application(settings=Settings, routes=routes)
 app.run()
