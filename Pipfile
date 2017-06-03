@@ -6,6 +6,7 @@ verify_ssl = true
 mypy = "*"
 ipdb = "*"
 ipython = "*"
+twine = "*"
 
 [packages]
 orator = "*"
