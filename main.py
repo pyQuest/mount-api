@@ -6,8 +6,10 @@ from mount_api.routing import Route
 
 class Settings(BaseSettings):
     debug = True
+    hostname = 'localhost'
     port = 8000
     router = 'mount_api.routing.Router'
+    runner = 'mount_api.runners.SimpleWerkzeugRunner'
 
 
 class HelloEndpoint(AbstractEndpoint):
