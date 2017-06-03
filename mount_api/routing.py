@@ -1,20 +1,27 @@
+import abc
 from typing import Callable
 
 import werkzeug.exceptions
 from werkzeug.routing import Map, Rule
 
-from . import exceptions
-from .http import RequestData
+from mount_api.core import exceptions
+from mount_api.core.http import RequestData
+
 
 class Route(Rule):
     def __init__(self, path, endpoint) -> None:
         super().__init__(path, endpoint=endpoint)
 
 
-class Router:
+class AbstractRouter(metaclass=abc.ABCMeta):
     def __init__(self, routes: list) -> None:
         self._adapter = Map(routes).bind('')
 
+    def dispatch(self, request_data: RequestData) -> Callable:
+        pass
+
+
+class Router(AbstractRouter):
     def dispatch(self, request_data: RequestData) -> Callable:
         path, method = request_data.path, request_data.method
         endpoint_cls = self._get_endpoint_cls(path, method)
