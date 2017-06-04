@@ -1,8 +1,8 @@
 __name__ = 'mountapi'
 __description__ = 'REST Framework with High Five'
 __url__ = 'https://mountapi.org'
-__version__ = '0.1.0'
-__build__ = 0x000100
+__version__ = '0.1.1'
+__build__ = 0x000101
 __author__ = 'Piotr Szpetkowski'
 __author_email__ = 'piotr.szpetkowski@pyquest.space'
 __license__ = 'Apache 2.0'

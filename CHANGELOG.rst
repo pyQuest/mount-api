@@ -6,6 +6,18 @@ This document records all notable changes to djoser.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 
+`0.1.1`_ (2017-06-05)
+---------------------
+
+Bugfix release consisting mostly of README improvements.
+List of changes:
+
+* Add new introduction section to ``README``
+* Update ``README`` code snippet to remove mistakes
+* Update ``Makefile`` to always run ``mypy`` in ``pipenv``
+* Split ``test_version_data_exists`` into multiple tests to decrease complexity
+
+
 `0.1.0`_ (2017-06-04)
 ---------------------
 
