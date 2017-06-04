@@ -1,10 +1,10 @@
 from unittest.mock import patch
 
 from mount_api.core.app import Application
-from mount_api.core.settings import BaseSettings
+from mount_api.core.settings import AbstractSettings
 
 
-class TestSettings(BaseSettings):
+class TestSettings(AbstractSettings):
     debug = False
     hostname = 'localhost'
     port = 8000
