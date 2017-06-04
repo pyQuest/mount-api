@@ -5,7 +5,6 @@ import werkzeug.exceptions
 from werkzeug.routing import Map, Rule
 
 from mount_api.core import exceptions
-from mount_api.core.http import RequestData
 
 
 class Route(Rule):
@@ -17,13 +16,12 @@ class AbstractRouter(metaclass=abc.ABCMeta):
     def __init__(self, routes: list) -> None:
         self._adapter = Map(routes).bind('')
 
-    def dispatch(self, request_data: RequestData) -> Callable:
+    def dispatch(self, path: str, method: str) -> Callable:
         pass
 
 
 class Router(AbstractRouter):
-    def dispatch(self, request_data: RequestData) -> Callable:
-        path, method = request_data.path, request_data.method
+    def dispatch(self, path: str, method: str) -> Callable:
         endpoint_cls = self._get_endpoint_cls(path, method)
         return getattr(endpoint_cls, method.lower())
 
