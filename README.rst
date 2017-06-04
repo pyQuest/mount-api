@@ -10,6 +10,21 @@ MountAPI: REST Framework with High Five
 .. image:: https://scrutinizer-ci.com/g/pyQuest/mount-api/badges/quality-score.png?b=master
   :target: https://scrutinizer-ci.com/g/pyQuest/mount-api
 
+High five!
+==========
+
+Hello, thanks for checking out ``MountAPI``.
+Let me introduce you to the high five principles of this project, before anything else:
+
+* High standards
+* High usability
+* High flexibility
+* High expandability
+* High convenience
+
+Keep in mind that despite the high five, this piece of software is in pre-alpha
+stage and every piece of code may change at any moment.
+
 Requirements
 ============
 
@@ -41,8 +56,8 @@ Here is a minimal working example based on ``MountAPI``:
 .. code-block:: python
 
     from mountapi.core import Application
-    from mountapi.endpoints import AbstractEndpoint
     from mountapi.core import AbstractSettings
+    from mountapi.endpoints import AbstractEndpoint
     from mountapi.routing import Route
 
 
@@ -50,8 +65,8 @@ Here is a minimal working example based on ``MountAPI``:
         debug = True
         hostname = 'localhost'
         port = 8000
-        router = 'mount_api.routing.Router'
-        runner = 'mount_api.runners.SimpleWerkzeugRunner'
+        router = 'mountapi.routing.Router'
+        runner = 'mountapi.runners.SimpleWerkzeugRunner'
 
 
     class HelloEndpoint(AbstractEndpoint):
