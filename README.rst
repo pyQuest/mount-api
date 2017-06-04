@@ -1,5 +1,5 @@
-MountAPI
-========
+MountAPI: REST Framework with High Five
+=======================================
 
 .. image:: https://travis-ci.org/pyQuest/mount-api.svg?branch=master
   :target: https://travis-ci.org/pyQuest/mount-api
@@ -9,3 +9,11 @@ MountAPI
 
 .. image:: https://scrutinizer-ci.com/g/pyQuest/mount-api/badges/quality-score.png?b=master
   :target: https://scrutinizer-ci.com/g/pyQuest/mount-api
+
+Requirements
+============
+
+Python 3.6 or newer is required to be able to run MountAPI.
+All other requirements are completely optional:
+
+* Werkzeug - for ``mount_api.runners.SimpleWerkzeugRunner``
