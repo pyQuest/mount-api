@@ -1,6 +1,6 @@
-from mount_api.core import exceptions
-from mount_api.endpoints import AbstractEndpoint
-from mount_api.routing import AbstractRouter, Route, Router
+from mountapi.core import exceptions
+from mountapi.endpoints import AbstractEndpoint
+from mountapi.routing import AbstractRouter, Route, Router
 
 import pytest
 

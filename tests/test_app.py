@@ -1,15 +1,15 @@
 from unittest.mock import patch
 
-from mount_api.core.app import Application
-from mount_api.core.settings import AbstractSettings
+from mountapi.core.app import Application
+from mountapi.core.settings import AbstractSettings
 
 
 class TestSettings(AbstractSettings):
     debug = False
     hostname = 'localhost'
     port = 8000
-    router = 'mount_api.routing.Router'
-    runner = 'mount_api.runners.SimpleWerkzeugRunner'
+    router = 'mountapi.routing.Router'
+    runner = 'mountapi.runners.SimpleWerkzeugRunner'
 
 
 @patch('werkzeug.serving.run_simple')
