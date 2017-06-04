@@ -5,15 +5,15 @@ from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
 from mount_api.http import RequestData, Request, Response
-from mount_api.core.settings import BaseSettings
+from mount_api.core.settings import AbstractSettings
 from mount_api.routing import AbstractRouter
 
 
 class SimpleWerkzeugRunner:
-    def __init__(self, router: AbstractRouter):
+    def __init__(self, router: AbstractRouter) -> None:
         self._router = router
 
-    def run(self, settings: Type[BaseSettings]):
+    def run(self, settings: Type[AbstractSettings]) -> None:
         run_simple(
             hostname=settings.hostname,
             port=settings.port,

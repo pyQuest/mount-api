@@ -5,18 +5,19 @@ from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
 
-def get_request_params(wsgi_request: WSGIRequest):
-    get_args = wsgi_request.values.to_dict()
-    post_args = json.loads(wsgi_request.data) if wsgi_request.data else {}
+def get_request_params(wsgi_request: WSGIRequest) -> dict:
+    get_args: dict = wsgi_request.values.to_dict()
+    json_data: str = str(wsgi_request.data)
+    post_args: dict = json.loads(json_data) if json_data else {}
 
     return {**get_args, **post_args}
 
 
 class RequestData:
-    def __init__(self, wsgi_request: WSGIRequest):
-        self.method = wsgi_request.method
-        self.path = wsgi_request.path
-        self.params = get_request_params(wsgi_request)
+    def __init__(self, wsgi_request: WSGIRequest) -> None:
+        self.method: str = wsgi_request.method
+        self.path: str = wsgi_request.path
+        self.params: dict = get_request_params(wsgi_request)
 
 
 class Request:

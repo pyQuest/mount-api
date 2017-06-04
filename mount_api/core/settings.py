@@ -2,12 +2,12 @@ import abc
 import importlib
 
 
-class BaseSettings(metaclass=abc.ABCMeta):
-    debug: bool = ...
-    hostname: str = ...
-    port: int = ...
-    router: str = ...
-    runner: str = ...
+class AbstractSettings(metaclass=abc.ABCMeta):
+    debug: bool = None
+    hostname: str = None
+    port: int = None
+    router: str = None
+    runner: str = None
 
     @classmethod
     def init_from_string(cls, setting_name: str, **kwargs) -> None:

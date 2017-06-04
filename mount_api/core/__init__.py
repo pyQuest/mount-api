@@ -1,2 +1,2 @@
 from .app import Application
-from .settings import BaseSettings
+from .settings import AbstractSettings

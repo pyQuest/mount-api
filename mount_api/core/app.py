@@ -1,10 +1,10 @@
 from typing import Type
 
-from .settings import BaseSettings
+from .settings import AbstractSettings
 
 
 class Application:
-    def __init__(self, settings: Type[BaseSettings], routes: list) -> None:
+    def __init__(self, settings: Type[AbstractSettings], routes: list) -> None:
         self._settings = settings
         self._settings.init_from_string('router', routes=routes)
         self._settings.init_from_string('runner', router=self._settings.router)
