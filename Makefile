@@ -4,6 +4,6 @@ init:
 	pipenv install --dev
 
 test:
-	mypy mountapi/
+	pipenv run mypy mountapi/
 	pipenv run py.test --capture=no --cov-report term-missing --cov-report html --cov=mountapi --flake8 tests/
 
