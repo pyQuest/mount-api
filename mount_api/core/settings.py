@@ -10,7 +10,7 @@ class BaseSettings(metaclass=abc.ABCMeta):
     runner: str = ...
 
     @classmethod
-    def init_from_string(cls, setting_name: str, **kwargs):
+    def init_from_string(cls, setting_name: str, **kwargs) -> None:
         setting = getattr(cls, setting_name)
         mod_name, resource_name = setting.rsplit('.', 1)
         mod = importlib.import_module(mod_name)

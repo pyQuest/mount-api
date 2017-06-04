@@ -4,13 +4,13 @@ from werkzeug.serving import run_simple
 from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
-from mount_api.core.http import RequestData, Request, Response
+from mount_api.http import RequestData, Request, Response
 from mount_api.core.settings import BaseSettings
 from mount_api.routing import AbstractRouter
 
 
 class SimpleWerkzeugRunner:
-    def __init__(self, router: Type[AbstractRouter]):
+    def __init__(self, router: AbstractRouter):
         self._router = router
 
     def run(self, settings: Type[BaseSettings]):
@@ -26,7 +26,9 @@ class SimpleWerkzeugRunner:
         @WSGIRequest.application
         def application(wsgi_request: WSGIRequest) -> WSGIResponse:
             request_data = RequestData(wsgi_request)
-            request_func = self._router.dispatch(request_data)
+            request_func = self._router.dispatch(
+                request_data.path, request_data.method
+            )
             request = Request(request_data, request_func)
             response = Response(request)
             return response.wsgi()
