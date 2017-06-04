@@ -16,3 +16,11 @@ class AbstractSettings(metaclass=abc.ABCMeta):
         mod = importlib.import_module(mod_name)
         resource = getattr(mod, resource_name)
         setattr(cls, setting_name, resource(**kwargs))
+
+
+class DefaultSettings(AbstractSettings):
+    debug = True
+    hostname = 'localhost'
+    port = 8080
+    router = 'mountapi.routing.Router'
+    runner = 'mountapi.runners.SimpleWerkzeugRunner'
