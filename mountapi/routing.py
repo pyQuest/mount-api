@@ -4,7 +4,7 @@ from typing import Callable
 import werkzeug.exceptions
 from werkzeug.routing import Map, Rule
 
-from mount_api.core import exceptions
+from mountapi.core import exceptions
 
 
 class Route(Rule):

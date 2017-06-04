@@ -4,9 +4,9 @@ from werkzeug.serving import run_simple
 from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
-from mount_api.http import RequestData, Request, Response
-from mount_api.core.settings import AbstractSettings
-from mount_api.routing import AbstractRouter
+from mountapi.http import RequestData, Request, Response
+from mountapi.core.settings import AbstractSettings
+from mountapi.routing import AbstractRouter
 
 
 class SimpleWerkzeugRunner:

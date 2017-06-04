@@ -1,10 +1,10 @@
-from mount_api.core import Application
-from mount_api.endpoints import AbstractEndpoint
-from mount_api.core import BaseSettings
-from mount_api.routing import Route
+from mountapi.core import Application
+from mountapi.endpoints import AbstractEndpoint
+from mountapi.core import AbstractSettings
+from mountapi.routing import Route
 
 
-class Settings(BaseSettings):
+class Settings(AbstractSettings):
     debug = True
     hostname = 'localhost'
     port = 8000
