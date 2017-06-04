@@ -12,6 +12,4 @@ pytest-flake8 = "*"
 pytest-cov = "*"
 
 [packages]
-orator = "*"
-requests = "*"
 Werkzeug = "*"
