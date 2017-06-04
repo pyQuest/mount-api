@@ -34,4 +34,5 @@ List of features delivered in this version:
 * Basic endpoint interface (``mountapi.endpoints.AbstractEndpoint``)
 
 
+.. _0.1.1: https://github.com/pyQuest/mount-api/compare/0.1.0...0.1.1
 .. _0.1.0: https://github.com/pyQuest/mount-api/compare/5ea80fc...0.1.0
