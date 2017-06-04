@@ -16,8 +16,9 @@ class AbstractRouter(metaclass=abc.ABCMeta):
     def __init__(self, routes: list) -> None:
         self._adapter = Map(routes).bind('')
 
+    @abc.abstractmethod
     def dispatch(self, path: str, method: str) -> Callable:
-        pass
+        raise NotImplementedError('dispatch method has to be implemented.')
 
 
 class Router(AbstractRouter):

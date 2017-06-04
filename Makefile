@@ -4,5 +4,5 @@ init:
 	pipenv install --dev
 
 test:
-	pipenv run py.test --capture=no --cov=mount_api --flake8 tests/
+	pipenv run py.test --capture=no --cov-report term-missing --cov-report html --cov=mount_api --flake8 tests/
 

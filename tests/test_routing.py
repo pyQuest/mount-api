@@ -1,6 +1,6 @@
 from mount_api.core import exceptions
 from mount_api.endpoints import AbstractEndpoint
-from mount_api.routing import Route, Router
+from mount_api.routing import AbstractRouter, Route, Router
 
 import pytest
 
@@ -40,3 +40,8 @@ def test_router_raises_not_found_for_invalid_path():
 def test_router_raises_not_found_for_invalid_method():
     with pytest.raises(exceptions.MethodNotAllowed):
         router.dispatch(path=routes[0].rule, method='DELETE')
+
+
+def test_abstract_router_dispatch_raises_not_implemented():
+    with pytest.raises(NotImplementedError):
+        AbstractRouter.dispatch(router, path=routes[0].rule, method='GET')
