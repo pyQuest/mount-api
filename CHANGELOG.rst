@@ -6,6 +6,14 @@ This document records all notable changes to djoser.
 This project adheres to `Semantic Versioning <http://semver.org/>`_.
 
 
+`0.2.0`_ (not released)
+-----------------------
+
+List of changes:
+
+* Rename ``mountapi.runners.SimpleWerkzeugRunner`` into ``mountapi.runners.Runner``
+
+
 `0.1.1`_ (2017-06-05)
 ---------------------
 

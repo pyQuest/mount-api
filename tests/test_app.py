@@ -9,7 +9,7 @@ class TestSettings(AbstractSettings):
     hostname = 'localhost'
     port = 8000
     router = 'mountapi.routing.Router'
-    runner = 'mountapi.runners.SimpleWerkzeugRunner'
+    runner = 'mountapi.runners.Runner'
 
 
 @patch('werkzeug.serving.run_simple')

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "38425fe98e0a2e32a0694f8afb1c872ac2aa69d21552a748f89090a88b7ab580"
+            "sha256": "d2ce63a8e3a7468cdef7787e113496ed4dab05197f6b95ffd34fe14c827563a1"
         },
         "requires": {},
         "sources": [
@@ -12,112 +12,55 @@
         ]
     },
     "default": {
-        "backpack": {
-            "version": "==0.1"
-        },
-        "blinker": {
-            "version": "==1.4"
+        "werkzeug": {
+            "version": "==0.12.2"
+        }
+    },
+    "develop": {
+        "backports.shutil-get-terminal-size": {
+            "version": "==1.0.0"
         },
         "certifi": {
             "version": "==2017.4.17"
         },
         "chardet": {
-            "version": "==3.0.3"
+            "version": "==3.0.4"
         },
-        "cleo": {
-            "version": "==0.6.0"
+        "configparser": {
+            "version": "==3.5.0"
         },
-        "faker": {
-            "version": "==0.7.12"
-        },
-        "idna": {
-            "version": "==2.5"
-        },
-        "inflection": {
-            "version": "==0.3.1"
-        },
-        "lazy-object-proxy": {
-            "version": "==1.3.1"
-        },
-        "orator": {
-            "version": "==0.9.7"
-        },
-        "pastel": {
-            "version": "==0.1.0"
-        },
-        "pendulum": {
-            "version": "==1.2.1"
-        },
-        "psutil": {
-            "version": "==5.2.2"
-        },
-        "pyaml": {
-            "version": "==16.12.2"
-        },
-        "pygments": {
-            "version": "==2.2.0"
-        },
-        "pylev": {
-            "version": "==1.3.0"
-        },
-        "python-dateutil": {
-            "version": "==2.6.0"
-        },
-        "pytz": {
-            "version": "==2017.2"
-        },
-        "pytzdata": {
-            "version": "==2017.2"
-        },
-        "pyyaml": {
-            "version": "==3.12"
-        },
-        "requests": {
-            "version": "==2.16.5"
-        },
-        "simplejson": {
-            "version": "==3.10.0"
-        },
-        "six": {
-            "version": "==1.10.0"
-        },
-        "tzlocal": {
-            "version": "==1.4"
-        },
-        "urllib3": {
-            "version": "==1.21.1"
-        },
-        "werkzeug": {
-            "version": "==0.12.2"
-        },
-        "wrapt": {
-            "version": "==1.10.10"
-        }
-    },
-    "develop": {
-        "appdirs": {
-            "version": "==1.4.3"
+        "coverage": {
+            "version": "==4.4.1"
         },
         "decorator": {
             "version": "==4.0.11"
+        },
+        "enum34": {
+            "version": "==1.1.6"
+        },
+        "flake8": {
+            "version": "==3.3.0"
+        },
+        "idna": {
+            "version": "==2.5"
         },
         "ipdb": {
             "version": "==0.10.3"
         },
         "ipython": {
-            "version": "==6.0.0"
+            "version": "==5.4.1"
         },
         "ipython-genutils": {
             "version": "==0.2.0"
         },
-        "jedi": {
-            "version": "==0.10.2"
+        "mccabe": {
+            "version": "==0.6.1"
         },
         "mypy": {
             "version": "==0.511"
         },
-        "packaging": {
-            "version": "==16.8"
+        "pathlib2": {
+            "version": "==2.3.0"
         },
         "pexpect": {
             "version": "==4.2.1"
@@ -125,20 +68,47 @@
         "pickleshare": {
             "version": "==0.7.4"
         },
+        "pkginfo": {
+            "version": "==1.4.1"
+        },
         "prompt-toolkit": {
             "version": "==1.0.14"
         },
         "ptyprocess": {
             "version": "==0.5.1"
         },
+        "py": {
+            "version": "==1.4.34"
+        },
+        "pycodestyle": {
+            "version": "==2.3.1"
+        },
+        "pyflakes": {
+            "version": "==1.5.0"
+        },
         "pygments": {
             "version": "==2.2.0"
         },
-        "pyparsing": {
-            "version": "==2.2.0"
+        "pytest": {
+            "version": "==3.1.2"
+        },
+        "pytest-cov": {
+            "version": "==2.5.1"
+        },
+        "pytest-flake8": {
+            "version": "==0.8.1"
+        },
+        "requests": {
+            "version": "==2.18.1"
+        },
+        "requests-toolbelt": {
+            "version": "==0.8.0"
+        },
+        "scandir": {
+            "version": "==1.5"
         },
         "setuptools": {
-            "version": "==35.0.2"
+            "version": "==36.0.1"
         },
         "simplegeneric": {
             "version": "==0.8.1"
@@ -146,14 +116,23 @@
         "six": {
             "version": "==1.10.0"
         },
+        "tqdm": {
+            "version": "==4.14.0"
+        },
         "traitlets": {
             "version": "==4.3.2"
         },
-        "typed-ast": {
-            "version": "==1.0.3"
+        "twine": {
+            "version": "==1.9.1"
+        },
+        "urllib3": {
+            "version": "==1.21.1"
         },
         "wcwidth": {
             "version": "==0.1.7"
+        },
+        "wheel": {
+            "version": "==0.29.0"
         }
     }
 }

@@ -31,7 +31,7 @@ Requirements
 Python 3.6 or newer is required to be able to run ``MountAPI``.
 All other requirements are completely optional:
 
-* Werkzeug - for ``mount_api.runners.SimpleWerkzeugRunner``
+* Werkzeug - for ``mount_api.runners.Runner``
 
 Installation
 ============

@@ -13,15 +13,15 @@ class Route(Rule):
 
 
 class AbstractRouter(metaclass=abc.ABCMeta):
-    def __init__(self, routes: list) -> None:
-        self._adapter = Map(routes).bind('')
-
     @abc.abstractmethod
     def dispatch(self, path: str, method: str) -> Callable:
         raise NotImplementedError('dispatch method has to be implemented.')
 
 
 class Router(AbstractRouter):
+    def __init__(self, routes: list) -> None:
+        self._adapter = Map(routes).bind('')
+
     def dispatch(self, path: str, method: str) -> Callable:
         endpoint_cls = self._get_endpoint_cls(path, method)
         return getattr(endpoint_cls, method.lower())

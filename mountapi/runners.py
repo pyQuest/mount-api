@@ -9,7 +9,7 @@ from mountapi.core.settings import AbstractSettings
 from mountapi.routing import AbstractRouter
 
 
-class SimpleWerkzeugRunner:
+class Runner:
     def __init__(self, router: AbstractRouter) -> None:
         self._router = router
 

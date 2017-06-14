@@ -9,5 +9,5 @@ class Application:
         self._settings.init_from_string('router', routes=routes)
         self._settings.init_from_string('runner', router=self._settings.router)
 
-    def run(self):
+    def run(self) -> None:
         self._settings.runner.run(self._settings)

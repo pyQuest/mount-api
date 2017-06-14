@@ -23,4 +23,4 @@ class DefaultSettings(AbstractSettings):
     hostname = 'localhost'
     port = 8080
     router = 'mountapi.routing.Router'
-    runner = 'mountapi.runners.SimpleWerkzeugRunner'
+    runner = 'mountapi.runners.Runner'
