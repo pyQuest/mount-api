@@ -1,15 +1,22 @@
+import abc
 from typing import Type
 
 from werkzeug.serving import run_simple
 from werkzeug.wrappers import Request as WSGIRequest
 from werkzeug.wrappers import Response as WSGIResponse
 
-from mountapi.http import RequestData, Request, Response
 from mountapi.core.settings import AbstractSettings
+from mountapi.http import RequestData, Request, Response
 from mountapi.routing import AbstractRouter
 
 
-class Runner:
+class AbstractRunner(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def run(self, settings: Type[AbstractSettings]) -> None:
+        pass
+
+
+class Runner(AbstractRunner):
     def __init__(self, router: AbstractRouter) -> None:
         self._router = router
 

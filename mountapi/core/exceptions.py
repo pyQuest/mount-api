@@ -1,3 +1,7 @@
+class InvalidRunner(Exception):
+    pass
+
+
 class NotFound(Exception):
     pass
 
