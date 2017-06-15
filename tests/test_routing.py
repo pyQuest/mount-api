@@ -1,35 +1,20 @@
-from mountapi.core import exceptions
-from mountapi.endpoints import AbstractEndpoint
-from mountapi.routing import AbstractRouter, Route, Router
-
 import pytest
 
-
-class TestEndpoint(AbstractEndpoint):
-    def get(self):
-        return {'message': 'Test response.'}
-
-    def post(self, name: str):
-        return {'message': 'Hello {}.'.format(name)}
-
-
-routes = [
-    Route('/welcome', TestEndpoint()),
-]
-
-router = Router(routes=routes)
+from mountapi.core import exceptions
+from mountapi.routing import AbstractRouter
+from tests.common import router, routes
 
 
 def test_router_valid_get_dispatch_for_valid_path():
     assert router.dispatch(
         path=routes[0].rule, method='GET'
-    ) == routes[0].endpoint.get
+    ).__func__ == routes[0].endpoint.get
 
 
 def test_router_valid_post_dispatch_for_valid_path():
     assert router.dispatch(
         path=routes[0].rule, method='POST'
-    ) == routes[0].endpoint.post
+    ).__func__ == routes[0].endpoint.post
 
 
 def test_router_raises_not_found_for_invalid_path():
@@ -42,6 +27,15 @@ def test_router_raises_not_found_for_invalid_method():
         router.dispatch(path=routes[0].rule, method='DELETE')
 
 
+def test_abstract_router_routes_raises_not_implemented():
+    with pytest.raises(NotImplementedError):
+        AbstractRouter.routes.fget(router)
+
+
 def test_abstract_router_dispatch_raises_not_implemented():
     with pytest.raises(NotImplementedError):
         AbstractRouter.dispatch(router, path=routes[0].rule, method='GET')
+
+
+def test_router_routes_contains_routes():
+    assert router.routes == routes
