@@ -7,8 +7,8 @@ from werkzeug.wrappers import Response as WSGIResponse
 
 def get_request_params(wsgi_request: WSGIRequest) -> dict:
     get_args: dict = wsgi_request.values.to_dict()
-    json_data: str = str(wsgi_request.data)
-    post_args: dict = json.loads(json_data) if json_data else {}
+    json_data: bytes = wsgi_request.get_data(parse_form_data=True)
+    post_args: dict = json.loads(json_data.decode('utf-8')) if json_data else {}
 
     return {**get_args, **post_args}
 

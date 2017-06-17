@@ -6,7 +6,7 @@ from mountapi.http import RequestData, Request, Response
 @patch('werkzeug.wrappers.Request')
 def test_request_data_empty_request_params(wsgi_request_mock):
     wsgi_request_mock.values.to_dict.return_value = {}
-    wsgi_request_mock.data = {}
+    wsgi_request_mock.get_data.return_value = {}
     request_data = RequestData(wsgi_request_mock)
     assert request_data.params == {}
 
@@ -14,7 +14,7 @@ def test_request_data_empty_request_params(wsgi_request_mock):
 @patch('werkzeug.wrappers.Request')
 def test_request_data_get_request_params(wsgi_request_mock):
     wsgi_request_mock.values.to_dict.return_value = {'foo': 'bar'}
-    wsgi_request_mock.data = {}
+    wsgi_request_mock.get_data.return_value = {}
     request_data = RequestData(wsgi_request_mock)
     assert request_data.params == {'foo': 'bar'}
 
@@ -22,7 +22,7 @@ def test_request_data_get_request_params(wsgi_request_mock):
 @patch('werkzeug.wrappers.Request')
 def test_request_data_post_request_params(wsgi_request_mock):
     wsgi_request_mock.values.to_dict.return_value = {}
-    wsgi_request_mock.data = '{"foo": "bar"}'
+    wsgi_request_mock.get_data.return_value = b'{"foo": "bar"}'
     request_data = RequestData(wsgi_request_mock)
     assert request_data.params == {'foo': 'bar'}
 
