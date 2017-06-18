@@ -1,15 +1,23 @@
 import inspect
 
 
+class APIException(Exception):
+    pass
+
+
 class InvalidRunner(Exception):
     pass
 
 
-class NotFound(Exception):
+class NotFound(APIException):
     pass
 
 
-class MethodNotAllowed(Exception):
+class MethodNotAllowed(APIException):
+    pass
+
+
+class InvalidArguments(APIException):
     pass
 
 
