@@ -9,6 +9,7 @@ class AbstractSettings(metaclass=abc.ABCMeta):
     port: int = None
     router: Union[str, Callable] = 'mountapi.routing.AbstractRouter'
     runner: Union[str, Callable] = 'mountapi.runners.AbstractRunner'
+    schema: Union[str, Callable] = 'mountapi.schema.AbstractSchema'
 
     @classmethod
     def init_resource(cls, setting_name: str, **kwargs) -> None:
@@ -25,3 +26,4 @@ class DefaultSettings(AbstractSettings):
     port = 8080
     router = 'mountapi.routing.Router'
     runner = 'mountapi.runners.Runner'
+    schema = 'mountapi.schema.Schema'

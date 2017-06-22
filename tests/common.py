@@ -1,5 +1,6 @@
 from mountapi.endpoints import AbstractEndpoint
 from mountapi.routing import Route, Router
+from mountapi.schema import Schema
 
 
 class TestEndpoint(AbstractEndpoint):
@@ -14,4 +15,7 @@ routes = [
     Route('/test', TestEndpoint),
 ]
 
-router = Router(routes=routes)
+schema = Schema(routes)
+schema.build()
+
+router = Router(schema=schema)
