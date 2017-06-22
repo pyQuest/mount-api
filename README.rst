@@ -1,13 +1,16 @@
 MountAPI: REST Framework with High Five
 =======================================
 
-.. image:: https://travis-ci.org/pyQuest/mount-api.svg?branch=master
+.. image:: https://img.shields.io/pypi/v/mountapi.svg
+  :target: https://pypi.org/project/mountapi
+
+.. image:: https://img.shields.io/travis/pyQuest/mount-api.svg
   :target: https://travis-ci.org/pyQuest/mount-api
 
-.. image:: https://codecov.io/gh/pyQuest/mount-api/branch/master/graph/badge.svg
+.. image:: https://img.shields.io/codecov/c/github/pyQuest/mount-api.svg
   :target: https://codecov.io/gh/pyQuest/mount-api
 
-.. image:: https://scrutinizer-ci.com/g/pyQuest/mount-api/badges/quality-score.png?b=master
+.. image:: https://img.shields.io/scrutinizer/g/pyQuest/mount-api.svg
   :target: https://scrutinizer-ci.com/g/pyQuest/mount-api
 
 High five!
