@@ -16,12 +16,12 @@ class AbstractConverter(metaclass=abc.ABCMeta):
 
 class IntConverter(AbstractConverter):
     param_url = r'<(?P<param>\w+):int>'
-    param_regex = r'(?P<\1>\d+)'
+    param_regex = r'(?P<\1>\\d+)'
 
 
 class StrConverter(AbstractConverter):
     param_url = r'<(?P<param>\w+):str>'
-    param_regex = r'(?P<\1>\w+)'
+    param_regex = r'(?P<\1>\\w+)'
 
 
 class AbstractSchema(exceptions.NotImplementedMixin, metaclass=abc.ABCMeta):
